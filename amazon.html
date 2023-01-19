@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="amazoncss.css">
+</head>
+<body >
+    <div id="out">
+        <!--<div class="inn">
+            <h3 id="d"><i><b>LG FHM1207ADL 7kg Front Load Fully Automatic Washing Machine
+            with Steam Specifications and Features</b></i></h3>
+            <img id="im" src="washing machine.jpg">
+            <p><b>7.0kg, 6 Motion Direct Drive Washer, Touch Panel, Luxury Silver, Smart Diagnosis™, Baby Care, Front Load Washing Machine,
+            MORE MOTION, BETTER CARE with 6 Motion DD Inverter Control Touch Panel Smart Diagnosis™ System Tub Clean</b></p>
+            <h3 id="c"><b>Rs.35,000/-</b></h3>
+            <h3 id="i"><b>Household Electronic Items</b></h3>-->
+            </div>
+        </div>
+        <script>
+            let htmldata="";
+            fetch("https://fakestoreapi.com/products")
+            .then(data=>data.json())
+            .then(completedata=>{
+                completedata.map((obj1)=>{
+                    htmldata=htmldata+`<div class="card">
+                        <h1 class="title"><i><b>${obj1.title}</b></i></h1>
+                        <img class="images" src=${obj1.image} alt="img">
+                        <p><b><i>${obj1.description}</i></b></p>
+                        <p class="category"><b><i>${obj1.category}<i></b></p>
+                        <p class="price"><b>${obj1.price}</b></p>
+                        </div>`
+                        })
+                        document.getElementById("out").innerHTML=htmldata;
+                    })
+                    </script>
+</body>
+</html>
